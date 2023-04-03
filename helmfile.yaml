@@ -1,0 +1,22 @@
+repositories:
+  - name: prometheus
+    url: https://prometheus-community.github.io/helm-charts
+  #- name: helloworld    # the name of your application
+   # url: git+https://github.com/tezeh-ops/helmfile@<chartName>?ref=main&sparse=0  #this for how to pull your helmchart from github
+                                        
+releases:
+  - name: demochart
+    namespace: dev 
+    chart: ./demochart
+    installed: true
+  - name: demochart
+    namespace: prod 
+    chart: ./demochart2
+    installed: true     # to delete or uninstall the deployment we change the true to false
+  - name: prometheus 
+    namespace: prod
+    chart: prometheus/prometheus
+    set:                              # the settig block is to take out rbac from prometheus in the prod evn
+      - name: rbac.create
+        value: false 
+    installed: true
