@@ -1,0 +1,17 @@
+Helmfile:
+
+#########
+# Setup #
+#########
+
+# Install helmfile
+
+https://helmfile.readthedocs.io/en/latest/    # follow this link to install helmfile
+
+# Install helmfile diff plugin 
+
+helm plugin install https://github.com/databus23/helm-diff     # run this to install the helmfile plugins
+
+# Install helm git plugin
+
+helm plugin install https://github.com/aslafy-z/helm-git --version 0.11.1    # run this to install the git plugin to have access to your github
